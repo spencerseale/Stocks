@@ -16,9 +16,6 @@ elif today_date[8:] == "30":
     friday_date = today_date[:8] + "29"
 else:
     friday_date = today_date[:9] + str(int(today_date[9:]) - 1)
-#print(friday_date)
-
-#comp_sym = "MSFT"
 
 #Function to grab api data for a specific stock and report weekly data
 def stock_DATA(comp_sym, filename):
@@ -47,12 +44,14 @@ def stock_DATA(comp_sym, filename):
 #Spencer
 spencer_tick = ["MSFT", "AAPL"]
 colin_tick = ["LEVI", "ACB"]
+dad_tick = []
 
 ##client and their ticker list
 #key=client, value=ticker list
 client_ticker_dict = {
 "spencer" : spencer_tick,
-"colin" : colin_tick
+"colin" : colin_tick,
+"dad" : dad_tick
 }
 
 #writing stock summary for each client to separate .txt files

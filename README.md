@@ -1,2 +1,2 @@
 # Stocks
-Pulling list of interesting stock market prices
+Create custom pdfs of stock market performance.

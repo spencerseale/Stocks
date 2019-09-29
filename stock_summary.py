@@ -6,7 +6,7 @@ import requests
 from datetime import datetime
 from fpdf import FPDF
 
-#determing Friday's date, must run on following Saturday
+#determing Friday's date, must run on Saturdays
 today_date = datetime.today().strftime('%Y-%m-%d')
 if today_date[8:] == "10":
     friday_date = today_date[:8] + "09"
@@ -44,7 +44,7 @@ def stock_DATA(comp_sym, filename):
 #Spencer
 spencer_tick = ["MSFT", "AAPL"]
 colin_tick = ["LEVI", "ACB"]
-dad_tick = []
+dad_tick = ["TD", "NVDA", "ADPT", "GO", "PANW", "TSLA", "GE", "INTC", "FEYE"]
 
 ##client and their ticker list
 #key=client, value=ticker list
@@ -62,6 +62,7 @@ for cli in client_ticker_dict.keys():
     filename = cli+"_stock_smry_"+friday_date+".txt"
     with open(client_dir+filename, "w") as id:
         for ticker in client_ticker_dict[cli]:
+            print("Fetching", ticker)
             stock_DATA(ticker, id)
 #transforming .txt to .pdf
     pdf = FPDF()
